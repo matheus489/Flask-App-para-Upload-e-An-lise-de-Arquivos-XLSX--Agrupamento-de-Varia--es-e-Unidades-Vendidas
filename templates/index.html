@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendas Shopee</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white shadow-md rounded-lg p-8 max-w-lg w-full">
+        <h1 class="text-2xl font-bold mb-6 text-center text-gray-700">Calcular Vendas por Variação</h1>
+        <form action="/" method="post" enctype="multipart/form-data">
+            <label for="file" class="block mb-2 text-gray-600">Escolha um arquivo XLSX:</label>
+            <input type="file" id="file" name="file" accept=".xlsx" required class="block w-full border border-gray-300 rounded-md p-2 mb-4">
+            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded-md">Enviar</button>
+        </form>
+
+        {% if resultados %}
+            <h2 class="text-xl font-semibold mt-6 mb-4 text-gray-700">Resultados</h2>
+            <ul class="bg-gray-50 border border-gray-300 rounded-md divide-y divide-gray-200">
+                {% for resultado in resultados %}
+                    <li class="p-2 text-gray-600">{{ resultado }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
